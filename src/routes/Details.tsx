@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 interface DetailsInterface {
@@ -79,8 +79,11 @@ function Details() {
   const characterId = useParams();
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState<DetailsInterface>();
+  const navigate = useNavigate();
 
-  const onClick = () => {};
+  const onClick = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     (async () => {
